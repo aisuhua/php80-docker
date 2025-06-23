@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  php80:
+    build: .
+    image: php:80
+    restart: always
+    user: "${USERID:-1001}:${GID:-0}"
+    ports:
+      - 9000:9000
+      - 9001:9001
+    volumes: 
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/www:/opt/www
+    working_dir: /opt/www
