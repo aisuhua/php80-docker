@@ -1,5 +1,9 @@
 version: '3'
 
+networks:
+  php:
+    external: false
+
 services:
   php80:
     build: .
@@ -14,3 +18,5 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /opt/www:/opt/www
     working_dir: /opt/www
+    networks:
+      - php
